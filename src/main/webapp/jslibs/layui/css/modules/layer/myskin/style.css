@@ -1,0 +1,96 @@
+body .layui-layer-error .layui-layer-title {
+    background: #c9302c;
+    color: #fff;
+    border: none;
+    border-radius: 0px;
+}
+
+body .layui-layer-warning .layui-layer-title {
+    background: #ec971f;
+    color: #fff;
+    border: none;
+    border-radius: 0px;
+}
+
+body .layui-layer-info .layui-layer-title {
+    background: #31b0d5;
+    color: #fff;
+    border: none;
+    border-radius: 0px;
+}
+
+body .layui-layer-success .layui-layer-title {
+    background: #449d44;
+    color: #fff;
+    border: none;
+    border-radius: 0px;
+}
+
+
+body .layui-layer-error .layui-layer-btn {
+    padding: 10px;
+    text-align: right;
+    border-top: 1px solid #c9302c
+}
+
+body .layui-layer-error .layui-layer-btn a {
+    background: #c9302c;
+    color:#fff;
+    border: none
+}
+
+body .layui-layer-error .layui-layer-btn .layui-layer-btn1 {
+    background: #808080;
+    color:#fff;
+}
+
+body .layui-layer-warning .layui-layer-btn {
+    padding: 10px;
+    text-align: right;
+    border-top: 1px solid #ec971f
+}
+
+body .layui-layer-warning .layui-layer-btn a {
+    background: #ec971f;
+    color:#fff;
+    border: none
+}
+
+body .layui-layer-warning .layui-layer-btn .layui-layer-btn1 {
+    background: #808080;
+    color:#fff;
+}
+
+body .layui-layer-info .layui-layer-btn {
+    padding: 10px;
+    text-align: right;
+    border-top: 1px solid #31b0d5
+}
+
+body .layui-layer-info .layui-layer-btn a {
+    background: #31b0d5;
+    color:#fff;
+    border: none
+}
+
+body .layui-layer-info .layui-layer-btn .layui-layer-btn1 {
+    background: #808080;
+    color:#fff;
+}
+
+body .layui-layer-success .layui-layer-btn {
+    padding: 10px;
+    text-align: right;
+    border-top: 1px solid #449d44
+}
+
+body .layui-layer-success .layui-layer-btn a {
+    background: #449d44;
+    color:#fff;
+    border: none
+}
+
+body .layui-layer-success .layui-layer-btn .layui-layer-btn1 {
+    background: #808080;
+    color:#fff;
+}

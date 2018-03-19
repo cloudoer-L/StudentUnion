@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="menu" namespace="/menu" extends="struts-default">
+        <action name="indexUI" class="menuAction" method="indexUI">
+            <result name="success">/WEB-INF/views/developer/menu/index.jsp</result>
+        </action>
+        <action name="addUI" class="menuAction" method="addUI">
+            <result name="success">/WEB-INF/views/developer/menu/add.jsp</result>
+        </action>
+
+        <action name="getMenuTree" class="menuAction" method="getMenuTree"></action>
+        <action name="getAll" class="menuAction" method="getAll"></action>
+        <action name="getById" class="menuAction" method="getById"></action>
+        <action name="add" class="menuAction" method="add"></action>
+        <action name="update" class="menuAction" method="update"></action>
+        <action name="delete" class="menuAction" method="delete"></action>
+    </package>
+</struts>

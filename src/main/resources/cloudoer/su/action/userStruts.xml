@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="user" namespace="/user" extends="struts-default">
+
+        <action name="loginUI" class="userAction" method="loginUI">
+            <result name="success">/WEB-INF/views/index/login.jsp</result>
+        </action>
+        <action name="indexUI" class="userAction" method="indexUI">
+            <result name="success">/WEB-INF/views/index/index.jsp</result>
+        </action>
+        <action name="westUI" class="userAction" method="westUI">
+            <result name="success">/WEB-INF/views/index/west.jsp</result>
+        </action>
+
+        <action name="login" class="userAction" method="login">
+            <result name="success" type="redirectAction">
+                <param name="namespace">/index</param>
+                <param name="actionName">indexUI</param>
+            </result>
+            <result name="error" type="redirectAction">
+                <param name="namespace">/index</param>
+                <param name="actionName">loginUI</param>
+            </result>
+            <result name="loginUI" type="redirectAction">loginUI</result>
+            <result name="indexUI" type="redirectAction">indexUI</result>
+        </action>
+        
+    </package>
+
+</struts>

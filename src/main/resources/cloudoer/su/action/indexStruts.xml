@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="index" namespace="/index" extends="struts-default">
+        <action name="loginUI" class="indexAction" method="loginUI">
+            <result name="success">/WEB-INF/views/index/login.jsp</result>
+        </action>
+        <action name="indexUI" class="indexAction" method="indexUI">
+            <result name="success">/WEB-INF/views/index/index.jsp</result>
+        </action>
+        <action name="westUI" class="indexAction" method="westUI">
+            <result name="success">/WEB-INF/views/index/west.jsp</result>
+        </action>
+    </package>
+</struts>
