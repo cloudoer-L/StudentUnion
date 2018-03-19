@@ -1,6 +1,9 @@
 package cloudoer.su.base;
 
+import cloudoer.su.exception.ServiceException;
+
 import java.io.File;
+import java.io.OutputStream;
 import java.util.List;
 
 public interface BaseDao<T> {
@@ -58,4 +61,6 @@ public interface BaseDao<T> {
     int getCount();
 
     String importFile(File file);
+
+    void exportFile(List<T> list, OutputStream os)throws Exception;
 }

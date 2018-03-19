@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
+import java.io.OutputStream;
 import java.util.List;
 
 @Service("teacherService")
@@ -59,4 +60,10 @@ public class TeacherServiceImpl extends BaseServiceImpl implements TeacherServic
     public String importFile(File file) throws ServiceException {
         return teacherDao.importFile(file);
     }
+
+    public void exportFile(OutputStream os) throws Exception {
+        teacherDao.exportFile(teacherDao.getAll(), os);
+    }
+
+
 }

@@ -5,6 +5,7 @@ import cloudoer.su.entity.Teacher;
 import cloudoer.su.exception.ServiceException;
 
 import java.io.File;
+import java.io.OutputStream;
 import java.util.List;
 
 public interface TeacherService extends BaseService {
@@ -23,4 +24,6 @@ public interface TeacherService extends BaseService {
     void delete (String id);
 
     String importFile(File file) throws ServiceException;
+
+    void exportFile(OutputStream os)throws Exception;
 }

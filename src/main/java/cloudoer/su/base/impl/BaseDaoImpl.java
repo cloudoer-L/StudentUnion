@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 
 import javax.annotation.Resource;
 import java.io.File;
+import java.io.OutputStream;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
