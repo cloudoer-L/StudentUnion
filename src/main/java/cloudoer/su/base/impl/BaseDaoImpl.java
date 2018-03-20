@@ -29,7 +29,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
      * 获取session
      * @return
      */
-    protected Session getSession(){
+    public Session getSession(){
         return factory.getCurrentSession();
         //return factory.openSession();
     }
@@ -82,7 +82,4 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
                 .intValue();
     }
 
-    public String importFile(File file) {
-        return "这个模块不允许导入";
-    }
 }

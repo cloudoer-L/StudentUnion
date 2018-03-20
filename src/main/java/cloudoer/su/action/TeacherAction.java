@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.List;
 
@@ -105,6 +106,14 @@ public class TeacherAction extends BaseAction {
         }else {
             ajaxError("文件格式错误，请按规范提交");
         }
+        return null;
+    }
+
+    public String exportFile() throws Exception {
+        OutputStream os = ServletActionContext.getResponse().getOutputStream();
+        ServletActionContext.getResponse().setContentType("application/x-execl");
+        ServletActionContext.getResponse().setHeader("Content-Disposition", "attachment;filename=" + new String("教师数据.xls".getBytes(), "ISO-8859-1"));
+        teacherService.exportFile(os);
         return null;
     }
 }

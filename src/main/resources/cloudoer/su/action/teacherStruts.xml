@@ -24,5 +24,6 @@
         <action name="update" class="teacherAction" method="update"></action>
         <action name="delete" class="teacherAction" method="delete"></action>
         <action name="importFile" class="teacherAction" method="importFile"></action>
+        <action name="exportFile" class="teacherAction" method="exportFile"></action>
     </package>
 </struts>

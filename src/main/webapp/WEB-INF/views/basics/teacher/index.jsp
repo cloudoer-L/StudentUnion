@@ -15,7 +15,7 @@
     <a id="teacher_index_add" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">添加教师</a>|
     <a id="teacher_index_update" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">修改教师</a>|
     <a id="teacher_index_delete" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">删除教师</a>
-    <a id="teacher_index_input" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">批量导入</a>
+    <a id="teacher_index_import" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">批量导入</a>
     <a id="teacher_index_export" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">批量导出</a>
 </div>
 
@@ -58,8 +58,11 @@
                     $.messager.alert('警告','请选择一条数据');
                 }
             });
-            $('#teacher_index_input').on('click', function () {
+            $('#teacher_index_import').on('click', function () {
                 bs.show_dialog_min('teacher_dialog',bs.base_url + 'teacher/importUI.action', '批量导入', null);
+            });
+            $('#teacher_index_export').on('click', function () {
+                window.open(bs.base_url + 'teacher/exportFile.action');
             });
         }
     }

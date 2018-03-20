@@ -2,7 +2,10 @@ package cloudoer.su.service;
 
 import cloudoer.su.base.BaseService;
 import cloudoer.su.entity.Classes;
+import cloudoer.su.exception.ServiceException;
 
+import java.io.File;
+import java.io.OutputStream;
 import java.util.List;
 
 public interface ClassesService extends BaseService {
@@ -19,4 +22,8 @@ public interface ClassesService extends BaseService {
     void update (Classes classes, String teacherId);
 
     void delete (String id);
+
+    String importFile(File file) throws ServiceException;
+
+    void exportFile(OutputStream os)throws Exception;
 }

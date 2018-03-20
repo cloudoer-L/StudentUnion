@@ -8,6 +8,8 @@ import cloudoer.su.service.ClassesService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.File;
+import java.io.OutputStream;
 import java.util.List;
 
 @Service("classesService")
@@ -53,4 +55,14 @@ public class ClassesServiceImpl extends BaseServiceImpl implements ClassesServic
         }
         classesDao.delete(id);
     }
+
+    public String importFile(File file) throws ServiceException {
+        return null;
+    }
+
+    public void exportFile(OutputStream os) throws Exception {
+
+    }
+
+
 }

@@ -1,12 +1,15 @@
 package cloudoer.su.base;
 
 import cloudoer.su.exception.ServiceException;
+import org.hibernate.Session;
 
 import java.io.File;
 import java.io.OutputStream;
 import java.util.List;
 
 public interface BaseDao<T> {
+    Session getSession();
+
     /**
      * 添加
      * @param t
@@ -60,7 +63,4 @@ public interface BaseDao<T> {
      */
     int getCount();
 
-    String importFile(File file);
-
-    void exportFile(List<T> list, OutputStream os)throws Exception;
 }

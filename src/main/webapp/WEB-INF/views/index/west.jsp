@@ -24,7 +24,7 @@
             for (var i = 0; i < _menu.length; i++){
                 var _button = '';
                 for (var j = 0; j < _menu[i].lower.length; j++){
-                    _button = '<a id="'+_menu[i].lower[j].id+'" href="javascript:;">'+_menu[i].lower[j].name+'</a>';
+                    _button += '<a id="'+_menu[i].lower[j].id+'" href="javascript:;">'+_menu[i].lower[j].name+'</a><br/>';
                 }
                 $('#west_app').accordion('add',{
                     title: _menu[i].name,
