@@ -10,7 +10,7 @@
     <fieldset class="layui-elem-field">
         <legend>导入过程:</legend>
         <div class="layui-field-box">
-            1.请先<a href=""  target="_blank" style="font-size: 15px;color: red;">单位导入模板</a><br/>
+            1.请先<a href="../excel/getExcel.action?downPath=教师导入模板.xls"  target="_blank" style="font-size: 15px;color: red;">单位导入模板</a><br/>
             2.按照模板格式录入数据<br/>
             3.上传文件<br/>
         </div>

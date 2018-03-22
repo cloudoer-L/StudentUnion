@@ -15,8 +15,8 @@
     <a id="classes_index_add" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">添加班级</a>|
     <a id="classes_index_update" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">修改班级</a>|
     <a id="classes_index_delete" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">删除班级</a>
-    <a id="classes_index_import" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">批量班级</a>
-    <a id="classes_index_export" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">批量班级</a>
+    <a id="classes_index_import" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">批量导入</a>
+    <a id="classes_index_export" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">批量导出</a>
 </div>
 
 <script type="text/javascript">
@@ -63,10 +63,16 @@
                 var _row = $('#classes_index_dg').datagrid('getSelected');
                 if (_row != null){
                     var _url = bs.base_url + 'classes/delete.action?id='+_row.id;
-                    bs.base_ajax_datagrid(_url,'classes_index_dg','您确认想要删除这个教师信息吗？');
+                    bs.base_ajax_datagrid(_url,'classes_index_dg','您确认想要删除这个班级信息吗？');
                 }else {
                     $.messager.alert('警告','请选择一条数据');
                 }
+            });
+            $('#classes_index_import').on('click', function () {
+                bs.show_dialog_min('classes_dialog',bs.base_url + 'classes/importUI.action', '批量导入', null);
+            });
+            $('#classes_index_export').on('click', function () {
+                window.open(bs.base_url + 'classes/exportFile.action');
             });
         }
     }

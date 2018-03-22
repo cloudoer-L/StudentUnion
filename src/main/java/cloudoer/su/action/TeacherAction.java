@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @Scope("prototype")
@@ -89,22 +90,19 @@ public class TeacherAction extends BaseAction {
     }
 
     public String importFile() throws IOException {
-        FileItemFactory factory = new DiskFileItemFactory();
-        ServletFileUpload upload = new ServletFileUpload(factory);
-        upload.setHeaderEncoding("UTF-8");
-        MultiPartRequestWrapper wrapper = (MultiPartRequestWrapper) ServletActionContext.getRequest();
-        // 获得上传的文件名
-        String fileName = wrapper.getFileNames("importExcel")[0];
-        // 获得文件过滤器
-        File file = wrapper.getFiles("importExcel")[0];
+        Map<String, Object> map = getExcalFile();
+        File file = (File) map.get("file");
+        String fileName = (String) map.get("name");
         if (file == null){
             ajaxError("文件为空，导入失败");
+            return null;
         }
         if (fileName.matches("^.+\\.(?i)((xls)|(xlsx))$")){//检查是否是Excel文件
             String msg = teacherService.importFile(file);
             ajaxSuccess(msg);
         }else {
             ajaxError("文件格式错误，请按规范提交");
+            return null;
         }
         return null;
     }

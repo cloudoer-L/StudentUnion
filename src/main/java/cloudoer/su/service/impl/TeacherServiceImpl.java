@@ -4,6 +4,7 @@ import cloudoer.su.entity.Teacher;
 import cloudoer.su.exception.ServiceException;
 import cloudoer.su.service.TeacherService;
 import cloudoer.su.base.impl.BaseServiceImpl;
+import cloudoer.su.utils.ExcelUtil;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -75,14 +76,14 @@ public class TeacherServiceImpl extends BaseServiceImpl implements TeacherServic
             for (int i = 1; i < cont; i++){
                 try {
                     t = new Teacher();
-                    t.setName(sheet.getRow(i).getCell(0).toString());
-                    t.setNumber(sheet.getRow(i).getCell(1).toString());
-                    t.setSex(sheet.getRow(i).getCell(2).toString());
-                    t.setIdCard(sheet.getRow(i).getCell(3).toString());
-                    t.setPhone(sheet.getRow(i).getCell(4).toString());
-                    t.setQq(sheet.getRow(i).getCell(5).toString());
-                    t.setEmail(sheet.getRow(i).getCell(6).toString());
-                    t.setState(sheet.getRow(i).getCell(7).toString());
+                    t.setName(ExcelUtil.getCallValueToString(sheet.getRow(i).getCell(0)));
+                    t.setNumber(ExcelUtil.getCallValueToString(sheet.getRow(i).getCell(1)));
+                    t.setSex(ExcelUtil.getCallValueToString(sheet.getRow(i).getCell(2)));
+                    t.setIdCard(ExcelUtil.getCallValueToString(sheet.getRow(i).getCell(3)));
+                    t.setPhone(ExcelUtil.getCallValueToString(sheet.getRow(i).getCell(4)));
+                    t.setQq(ExcelUtil.getCallValueToString(sheet.getRow(i).getCell(5)));
+                    t.setEmail(ExcelUtil.getCallValueToString(sheet.getRow(i).getCell(6)));
+                    t.setState(ExcelUtil.getCallValueToString(sheet.getRow(i).getCell(7)));
                     teacherDao.add(t);
                     successCount ++ ;
                     if (i+1%20==0){

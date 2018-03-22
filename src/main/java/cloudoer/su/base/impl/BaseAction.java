@@ -8,9 +8,14 @@ import com.opensymphony.xwork2.ActionSupport;
 import net.sf.json.JSONArray;
 import net.sf.json.JsonConfig;
 import net.sf.json.util.CycleDetectionStrategy;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.dispatcher.multipart.MultiPartRequestWrapper;
 
 import javax.annotation.Resource;
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -91,5 +96,18 @@ public class BaseAction extends ActionSupport {
         map.put("description",msg);
         JSONArray jsonArray = JSONArray.fromObject(map);
         ServletActionContext.getResponse().getWriter().print(jsonArray);
+    }
+
+    public Map<String,Object> getExcalFile() throws IOException {
+        FileItemFactory factory = new DiskFileItemFactory();
+        ServletFileUpload upload = new ServletFileUpload(factory);
+        upload.setHeaderEncoding("UTF-8");
+        MultiPartRequestWrapper wrapper = (MultiPartRequestWrapper) ServletActionContext.getRequest();
+        String fileName = wrapper.getFileNames("importExcel")[0];
+        File file = wrapper.getFiles("importExcel")[0];
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("file", file);
+        map.put("name",fileName);
+        return map;
     }
 }
