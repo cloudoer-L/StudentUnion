@@ -1,9 +1,6 @@
 package cloudoer.su.base.impl;
 
-import cloudoer.su.service.ClassesService;
-import cloudoer.su.service.MenuService;
-import cloudoer.su.service.TeacherService;
-import cloudoer.su.service.UserService;
+import cloudoer.su.service.*;
 import com.opensymphony.xwork2.ActionSupport;
 import net.sf.json.JSONArray;
 import net.sf.json.JsonConfig;
@@ -33,6 +30,9 @@ public class BaseAction extends ActionSupport {
 
     @Resource(name = "classesService")
     protected ClassesService classesService;
+
+    @Resource(name = "positionService")
+    protected PositionService positionService;
 
     /**
      * ajax向前端传送json数据

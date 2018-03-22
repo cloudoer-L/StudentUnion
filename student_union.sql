@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2018-03-20 21:44:35
+Date: 2018-03-22 21:49:46
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,6 +34,7 @@ CREATE TABLE `su_classes` (
 -- ----------------------------
 -- Records of su_classes
 -- ----------------------------
+INSERT INTO `su_classes` VALUES ('402890ed62489c65016248d14d070000', '2017', '一班', '00332', '0', '402881e4618e2fb501618e3077300000');
 
 -- ----------------------------
 -- Table structure for su_classes_dormitory
@@ -158,6 +159,18 @@ INSERT INTO `su_menu` VALUES ('402890ed6224b276016224b9b1900006', '3', '', '', '
 INSERT INTO `su_menu` VALUES ('402890ed6243661e0162436e926f0000', '3', '', '', '批量导入', '020010040', '', 'teacher/import', 'teacher_index_import', '402890ed621a692301621a6a7eaf0000');
 INSERT INTO `su_menu` VALUES ('402890ed6243661e0162436f933a0001', '3', '', '', '批量导出', '020010050', '', 'teacher/exportFile', 'teacher_index_export', '402890ed621a692301621a6a7eaf0000');
 INSERT INTO `su_menu` VALUES ('402890ed6243661e0162437069b90002', '2', '', '', '班级管理', '020020000', 'open', 'classes/indexUI', 'basics_classes', '402890ee621563fe016215659ace0000');
+INSERT INTO `su_menu` VALUES ('402890ed624dca2801624dcd31570000', '2', '', '', '班级职务管理', '020080000', '', 'position/indexUI', 'basics_duty', '402890ee621563fe016215659ace0000');
+INSERT INTO `su_menu` VALUES ('402890ed624deca201624dee05740000', '3', '', '', '添加班级', '020020010', '', 'classes/addUI', 'classes_index_add', '402890ed6243661e0162437069b90002');
+INSERT INTO `su_menu` VALUES ('402890ed624deca201624deeb7ea0001', '3', '', '', '修改班级', '020020020', '', 'classes/addUI', 'classes_index_update', '402890ed6243661e0162437069b90002');
+INSERT INTO `su_menu` VALUES ('402890ed624deca201624df01cf50002', '3', '', '', '删除班级', '020020030', '', 'classes/delete', 'classes_index_delete', '402890ed6243661e0162437069b90002');
+INSERT INTO `su_menu` VALUES ('402890ed624deca201624df0c9820003', '3', '', '', '批量导入', '020020040', '', 'classes/importUI', 'classes_index_import', '402890ed6243661e0162437069b90002');
+INSERT INTO `su_menu` VALUES ('402890ed624deca201624df177130004', '3', '', '', '批量导出', '020020050', 'open', 'classes/exportFile', 'classes_index_export', '402890ed6243661e0162437069b90002');
+INSERT INTO `su_menu` VALUES ('402890ed624deca201624df26ace0005', '3', '', '', '添加职务', '020080010', '', 'position/addUI', 'position_index_add', '402890ed624dca2801624dcd31570000');
+INSERT INTO `su_menu` VALUES ('402890ed624deca201624df2ef940006', '3', '', '', '修改职务', '020080020', '', 'position/addUI', 'position_index_update', '402890ed624dca2801624dcd31570000');
+INSERT INTO `su_menu` VALUES ('402890ed624deca201624df38bc00007', '3', '', '', '删除职务', '020080030', '', 'position/delete', 'position_index_delete', '402890ed624dca2801624dcd31570000');
+INSERT INTO `su_menu` VALUES ('402890ed624deca201624df4543f0008', '3', '', '', '批量导入', '020080040', '', 'position/importUI', 'position_index_import', '402890ed624dca2801624dcd31570000');
+INSERT INTO `su_menu` VALUES ('402890ed624deca201624df50d0b0009', '3', '', '', '批量导出', '020080050', '', 'position/exportFile', 'position_index_export', '402890ed624dca2801624dcd31570000');
+INSERT INTO `su_menu` VALUES ('402890ed624deca201624df76c76000a', '2', '', '', '寝室管理', '020030000', '', '', 'basics/dormitory', '402890ee621563fe016215659ace0000');
 INSERT INTO `su_menu` VALUES ('402890ee621563fe016215659ace0000', '1', '', '', '基础数据', '020000000', '', '', 'basics', null);
 INSERT INTO `su_menu` VALUES ('ff80808161ef88380161ef8841450000', '1', null, null, '开发人员选项', '010000000', null, null, 'developer', null);
 INSERT INTO `su_menu` VALUES ('ff80808161ef88380161ef8841680001', '2', 'icon-search', null, '菜单管理', '010010000', null, 'menu/indexUI', 'developer_menu', 'ff80808161ef88380161ef8841450000');
@@ -203,8 +216,7 @@ CREATE TABLE `su_position` (
 -- ----------------------------
 -- Records of su_position
 -- ----------------------------
-INSERT INTO `su_position` VALUES ('a', null, 'a', null, null, null);
-INSERT INTO `su_position` VALUES ('b', null, null, null, 'a', null);
+INSERT INTO `su_position` VALUES ('402890ed624dca2801624dd4438f0001', '1', '班长', '101', '', null);
 
 -- ----------------------------
 -- Table structure for su_role

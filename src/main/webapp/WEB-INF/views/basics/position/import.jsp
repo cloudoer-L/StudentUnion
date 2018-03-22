@@ -1,16 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: 李小东
-  Date: 2018/3/15
+  Date: 2018/3/22
   Time: 20:39
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<div id="teacher_dialog" class="import_div">
+<div id="position_dialog" class="import_div">
     <fieldset class="layui-elem-field">
         <legend>导入过程:</legend>
         <div class="layui-field-box">
-            1.请先<a href="../excel/getExcel.action?downPath=教师导入模板.xls"  target="_blank" style="font-size: 15px;color: red;">教师导入模板</a><br/>
+            1.请先<a href="../excel/getExcel.action?downPath=班级职务导入模板.xls"  target="_blank" style="font-size: 15px;color: red;">职务导入模板</a><br/>
             2.按照模板格式录入数据<br/>
             3.上传文件<br/>
         </div>
@@ -32,12 +32,12 @@
         <legend>上传文件:</legend>
         <div class="layui-field-box">
             <form enctype="multipart/form-data" action="#" method="post">
-                <input type="file"  id="teacher_import_file" name="importExcel" class="layui-upload-file">
+                <input type="file"  id="position_import_file" name="importExcel" class="layui-upload-file">
             </form>
         </div>
     </fieldset>
     <script type="text/javascript">
-        $(bs.file_import_load('teacher_import_file',bs.base_url+'teacher/importFile.action','teacher_dialog','teacher_index_dg'));
+        $(bs.file_import_load('position_import_file',bs.base_url+'position/importFile.action','position_dialog','position_index_dg'));
     </script>
 
 </div>

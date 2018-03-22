@@ -57,7 +57,7 @@ public class ClassesServiceImpl extends BaseServiceImpl implements ClassesServic
     public void delete(String id) {
         Classes c = (Classes) classesDao.getById(id);
         if (c == null){
-            throw new ServiceException("修改失败，请检查参数");
+            throw new ServiceException("删除失败，请检查参数");
         }
         classesDao.delete(id);
     }

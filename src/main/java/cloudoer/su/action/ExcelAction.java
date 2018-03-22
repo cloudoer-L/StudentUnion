@@ -22,8 +22,9 @@ public class ExcelAction extends BaseAction {
         this.downPath = downPath;
     }
 
-    public String getFileName() {
-        return fileName;
+    public String getFileName() throws UnsupportedEncodingException {
+        //解决文件名中文乱码
+        return new String(fileName.getBytes("utf-8"),"ISO-8859-1");
     }
 
     public void setFileName(String fileName) {
@@ -38,9 +39,6 @@ public class ExcelAction extends BaseAction {
     public String getExcel() throws UnsupportedEncodingException {
         fileName = downPath;
         this.downPath = "WEB-INF/excel/"+downPath;
-        //ServletActionContext.getResponse().setContentType("application/x-execl");
-        //ServletActionContext.getResponse().setHeader("Content-Disposition", "attachment;filename=" + new String("班级数据.xls".getBytes(), "ISO-8859-1"));
-        //ServletActionContext.getResponse().setHeader("Content-Disposition","attachment;fileName="+java.net.URLEncoder.encode(fileName, "UTF-8"));
         return "success";
     }
 }
