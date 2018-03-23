@@ -31,12 +31,6 @@ public class Classes implements Serializable {
     @OneToMany(targetEntity = Student.class, mappedBy = "classes")
     @OrderBy("number")
     private Set<Student> students = new HashSet<Student>();
-    @ManyToMany(targetEntity = Dormitory.class)
-    @JoinTable(name = "su_classes_dormitory",
-            joinColumns = @JoinColumn(name = "classesId", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "dormitoryId", referencedColumnName = "id"))
-    @OrderBy("number")
-    private Set<Dormitory> dormitories = new HashSet<Dormitory>();
 
     public Classes(){}
 
@@ -94,14 +88,6 @@ public class Classes implements Serializable {
 
     public void setStudents(Set<Student> students) {
         this.students = students;
-    }
-
-    public Set<Dormitory> getDormitories() {
-        return dormitories;
-    }
-
-    public void setDormitories(Set<Dormitory> dormitories) {
-        this.dormitories = dormitories;
     }
 
     @Override

@@ -85,7 +85,11 @@ DROP TABLE IF EXISTS `su_dormitory`;
 CREATE TABLE `su_dormitory` (
   `id` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
+  `buildingName` varchar(255) DEFAULT NULL,
+  `buildingNumber` varchar(255) DEFAULT NULL,
   `number` varchar(255) DEFAULT NULL,
+  `capacity` int(11) DEFAULT NULL,
+  `alreadyCapacity` int(11) DEFAULT NULL,
   `state` varchar(255) DEFAULT NULL,
   `adminId` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),

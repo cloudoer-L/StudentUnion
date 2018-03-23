@@ -21,8 +21,12 @@ public class Dormitory implements Serializable {
     @GenericGenerator(name="su_uuid", strategy = "uuid")
     @GeneratedValue(generator = "su_uuid")
     private String id;
-    private String name;//楼名
-    private String number;//门牌号
+    private String name;//全称
+    private String buildingName;//楼名
+    private String buildingNumber;//门牌号
+    private String number;//编号
+    private Integer capacity;//床位个数
+    private Integer alreadyCapacity;//已经住进来的人数
     private String state;
     @OneToOne(targetEntity = Student.class)
     @JoinColumn(name = "adminId", referencedColumnName = "id", unique = true)
@@ -30,12 +34,6 @@ public class Dormitory implements Serializable {
     @OneToMany(targetEntity = Student.class, mappedBy = "dormitory")
     @OrderBy("number")
     private Set<Student> students = new HashSet<Student>();
-    @ManyToMany(targetEntity = Classes.class)
-    @JoinTable(name = "su_classes_dormitory",
-            joinColumns = @JoinColumn(name = "dormitoryId", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "classesId", referencedColumnName = "id"))
-    @OrderBy("number")
-    private Set<Classes> classes = new HashSet<Classes>();
 
     public Dormitory(){}
 
@@ -87,12 +85,36 @@ public class Dormitory implements Serializable {
         this.students = students;
     }
 
-    public Set<Classes> getClasses() {
-        return classes;
+    public String getBuildingName() {
+        return buildingName;
     }
 
-    public void setClasses(Set<Classes> classes) {
-        this.classes = classes;
+    public void setBuildingName(String buildingName) {
+        this.buildingName = buildingName;
+    }
+
+    public String getBuildingNumber() {
+        return buildingNumber;
+    }
+
+    public void setBuildingNumber(String buildingNumber) {
+        this.buildingNumber = buildingNumber;
+    }
+
+    public Integer getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Integer capacity) {
+        this.capacity = capacity;
+    }
+
+    public Integer getAlreadyCapacity() {
+        return alreadyCapacity;
+    }
+
+    public void setAlreadyCapacity(Integer alreadyCapacity) {
+        this.alreadyCapacity = alreadyCapacity;
     }
 
     @Override
@@ -101,6 +123,10 @@ public class Dormitory implements Serializable {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", number='" + number + '\'' +
+                ", number='" + buildingName + '\'' +
+                ", state='" + buildingNumber + '\'' +
+                ", number='" + capacity + '\'' +
+                ", state='" + alreadyCapacity + '\'' +
                 ", state='" + state + '\'' +
                 ", admin=" + admin.getName() +
                 '}';

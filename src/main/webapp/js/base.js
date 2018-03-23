@@ -228,6 +228,13 @@ Base.prototype.base_ajax_datagrid = function (_url,_dgId,_mes) {
     });
 };
 
+/**
+ * 导入
+ * @param _importId
+ * @param _url
+ * @param _dialogId
+ * @param _dgId
+ */
 Base.prototype.file_import_load = function (_importId, _url, _dialogId, _dgId) {
     layui.use('upload', function(){
         layui.upload({
@@ -259,5 +266,26 @@ Base.prototype.file_import_load = function (_importId, _url, _dialogId, _dgId) {
                 layer.msg('网络异常,上传失败', { shade: 0.3, time: 1000, icon: 2 });
             }
         });
+    });
+}
+
+/**
+ * category 加载
+ * @param _columns
+ * @param _url
+ * @param _idField
+ * @param _textField
+ */
+Base.prototype.load_category = function (_categoryId, _columns, _url, _idField, _textField) {
+    $('#'+_categoryId).combogrid({
+        url: _url,
+        panelWidth:300,
+        columns: _columns,
+        idField:_idField,
+        textField:_textField,
+        multiple:false,
+        separator:',',
+        editable:false,
+        loadMsg:'加载中'
     });
 }

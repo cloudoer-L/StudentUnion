@@ -66,18 +66,7 @@
                 {field:'number',title:'教师编号',width:150}
             ]];
             var _url = bs.base_url + 'teacher/getAll.action';
-            $('#classes_add_teacher').combogrid({
-                url: _url,
-                panelWidth:300,
-                columns: _columns,
-                idField:'id',
-                textField:'name',
-                multiple:false,
-                separator:',',
-                editable:false,
-                loadMsg:'加载中',
-                required:true
-            });
+            bs.load_category('classes_add_teacher', _columns, _url, 'id', 'name');
         },
         init:function () {
             _classes_add_js._qp = $('#classes_dialog').dialog('options').queryParams;
