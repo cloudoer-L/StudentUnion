@@ -21,10 +21,6 @@ public class Student extends Person {
     @ManyToOne(targetEntity = Dormitory.class)
     @JoinColumn(name = "dormitoryId",referencedColumnName = "id")
     private Dormitory dormitory;//所在寝室
-    @OneToMany(targetEntity = Position.class)
-    @JoinColumn(name = "positionId", referencedColumnName = "id")
-    @OrderBy("number")
-    private Set<Position> positions = new HashSet<Position>();//担任的班级职务
 
     public Student(){}
 
@@ -52,14 +48,6 @@ public class Student extends Person {
         this.dormitory = dormitory;
     }
 
-    public Set<Position> getPositions() {
-        return positions;
-    }
-
-    public void setPositions(Set<Position> positions) {
-        this.positions = positions;
-    }
-
     @Override
     public String toString() {
         return "Student{" +
@@ -72,8 +60,8 @@ public class Student extends Person {
                 ", qq='" + qq + '\'' +
                 ", email='" + email + '\'' +
                 "state='" + state + '\'' +
-                ", classes=" + classes +
-                ", dormitory=" + dormitory +
+                ", classes=" + classes.getName() +
+                ", dormitory=" + dormitory.getName() +
                 '}';
     }
 }

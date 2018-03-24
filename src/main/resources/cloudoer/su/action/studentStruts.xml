@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="student" namespace="/student" extends="struts-default">
+        <action name="indexUI" class="studentAction" method="indexUI">
+            <result name="success">/WEB-INF/views/basics/student/index.jsp</result>
+        </action>
+        <action name="addUI" class="studentAction" method="addUI">
+            <result name="success">/WEB-INF/views/basics/student/add.jsp</result>
+        </action>
+        <action name="importUI" class="studentAction" method="importUI">
+            <result name="success">/WEB-INF/views/basics/student/import.jsp</result>
+        </action>
+
+        <action name="getAll" class="studentAction" method="getAll"></action>
+        <action name="getByPage" class="studentAction" method="getByPage"></action>
+        <action name="getById" class="studentAction" method="getById"></action>
+        <action name="getByNumber" class="studentAction" method="getByNumber"></action>
+        <action name="add" class="studentAction" method="add"></action>
+        <action name="update" class="studentAction" method="update"></action>
+        <action name="delete" class="studentAction" method="delete"></action>
+        <action name="importFile" class="studentAction" method="importFile"></action>
+        <action name="exportFile" class="studentAction" method="exportFile"></action>
+    </package>
+</struts>

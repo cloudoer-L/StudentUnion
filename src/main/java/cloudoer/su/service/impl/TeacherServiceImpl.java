@@ -119,16 +119,18 @@ public class TeacherServiceImpl extends BaseServiceImpl implements TeacherServic
         rows.createCell(0).setCellValue("姓名");
         rows.createCell(1).setCellValue("教师编号");
         rows.createCell(2).setCellValue("性别");
-        rows.createCell(3).setCellValue("电话");
-        rows.createCell(4).setCellValue("qq号码");
-        rows.createCell(5).setCellValue("邮箱");
-        rows.createCell(6).setCellValue("状态");
+        rows.createCell(3).setCellValue("身份证号码");
+        rows.createCell(4).setCellValue("电话");
+        rows.createCell(5).setCellValue("qq号码");
+        rows.createCell(6).setCellValue("邮箱");
+        rows.createCell(7).setCellValue("状态");
         for (int i = 0; i < teachers.size(); i++){
             rows = sheet.createRow(i+1);
             rows.createCell(0).setCellValue(teachers.get(i).getName());
             rows.createCell(1).setCellValue(teachers.get(i).getNumber());
             rows.createCell(2).setCellValue(teachers.get(i).getSex());
-            rows.createCell(3).setCellValue(teachers.get(i).getPhone());
+            rows.createCell(3).setCellValue(teachers.get(i).getIdCard());
+            rows.createCell(4).setCellValue(teachers.get(i).getPhone());
             rows.createCell(5).setCellValue(teachers.get(i).getQq());
             rows.createCell(6).setCellValue(teachers.get(i).getEmail());
             rows.createCell(7).setCellValue(teachers.get(i).getState());

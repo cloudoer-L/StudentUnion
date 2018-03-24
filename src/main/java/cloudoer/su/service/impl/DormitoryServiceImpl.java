@@ -73,7 +73,7 @@ public class DormitoryServiceImpl extends BaseServiceImpl implements DormitorySe
         if (d == null){
             throw new ServiceException("删除失败，请检查参数");
         }
-        departmentDao.delete(id);
+        dormitoryDao.delete(id);
     }
 
     public String importFile(File file) throws ServiceException {
@@ -141,7 +141,7 @@ public class DormitoryServiceImpl extends BaseServiceImpl implements DormitorySe
             rows.createCell(2).setCellValue(dormitories.get(i).getBuildingNumber());
             rows.createCell(3).setCellValue(dormitories.get(i).getNumber());
             rows.createCell(4).setCellValue(dormitories.get(i).getCapacity());
-            rows.createCell(5).setCellValue(dormitories.get(i).getAlreadyCapacity());
+            rows.createCell(5).setCellValue(dormitories.get(i).getAlreadyCapacity() == null?0:dormitories.get(i).getAlreadyCapacity());
             rows.createCell(6).setCellValue(dormitories.get(i).getState());
         }
         workbook.write(os);
