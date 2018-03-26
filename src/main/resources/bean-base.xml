@@ -20,8 +20,8 @@
 	<!-- 1) 连接池实例 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
 		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-		<property name="jdbcUrl" value="jdbc:mysql://193.112.135.23:3306/student_union"></property>
-		<property name="user" value="root"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://111.231.224.221:3306/student_union"></property>
+		<property name="user" value="cloudoer"></property>
 		<property name="password" value="18048533521wslxd"></property>
 		<property name="initialPoolSize" value="3"></property>
 		<property name="maxPoolSize" value="16"></property>
@@ -50,6 +50,7 @@
 		<!-- c. 映射配置 -->
 		<property name="annotatedClasses">
 			<list>
+				<value>cloudoer.su.entity.ClassCommittee</value>
 				<value>cloudoer.su.entity.Classes</value>
 				<value>cloudoer.su.entity.Department</value>
 				<value>cloudoer.su.entity.Dormitory</value>

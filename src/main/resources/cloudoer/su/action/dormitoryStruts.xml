@@ -15,12 +15,15 @@
         <action name="importUI" class="dormitoryAction" method="importUI">
             <result name="success">/WEB-INF/views/basics/dormitory/import.jsp</result>
         </action>
+        <action name="infoUI" class="dormitoryAction" method="infoUI">
+            <result name="success">/WEB-INF/views/basics/dormitory/import.jsp</result>
+        </action>
 
         <action name="getAll" class="dormitoryAction" method="getAll"></action>
         <action name="getByPage" class="dormitoryAction" method="getByPage"></action>
         <action name="getById" class="dormitoryAction" method="getById"></action>
         <action name="getByNumber" class="dormitoryAction" method="getByNumber"></action>
-        <action name="getStudent" class="dormitoryAction" method="getStudent"></action>
+        <action name="getStudents" class="dormitoryAction" method="getStudents"></action>
         <action name="add" class="dormitoryAction" method="add"></action>
         <action name="update" class="dormitoryAction" method="update"></action>
         <action name="delete" class="dormitoryAction" method="delete"></action>

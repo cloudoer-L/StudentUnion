@@ -74,7 +74,7 @@
                 {field:'name',title:'学生姓名',width:150},
                 {field:'number',title:'学号',width:150}
             ]];
-            var _url = bs.base_url + 'dormitory/getStudent.action?id=' + _dormitoryId;
+            var _url = bs.base_url + 'dormitory/getStudents.action?id=' + _dormitoryId;
             bs.load_category('dormitory_add_admin', _columns, _url, 'id', 'name')
         },
         init:function () {

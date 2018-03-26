@@ -19,7 +19,7 @@ public interface DormitoryService extends BaseService {
 
     Dormitory getByNumber(String number);
 
-    Set<Student> getStudent(String id);
+    Set<Student> getStudents(String id);
 
     String add(Dormitory dormitory);
 

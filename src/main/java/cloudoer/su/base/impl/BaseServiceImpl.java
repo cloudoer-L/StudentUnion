@@ -39,4 +39,7 @@ public abstract class BaseServiceImpl implements BaseService {
 
     @Resource(name = "userDao")
     protected UserDao userDao;
+
+    @Resource(name = "classCommitteeDao")
+    protected ClassCommitteeDao classCommitteeDao;
 }

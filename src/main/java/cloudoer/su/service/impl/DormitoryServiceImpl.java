@@ -39,7 +39,7 @@ public class DormitoryServiceImpl extends BaseServiceImpl implements DormitorySe
         return (Dormitory) dormitoryDao.getByNumber(number);
     }
 
-    public Set<Student> getStudent(String id) {
+    public Set<Student> getStudents(String id) {
         Dormitory d = (Dormitory) dormitoryDao.getById(id);
         if (d.getStudents() == null){
             return new HashSet<Student>();

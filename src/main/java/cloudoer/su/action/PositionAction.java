@@ -39,7 +39,7 @@ public class PositionAction extends BaseAction{
 
     public String getAll() throws IOException {
         List<Position> list = positionService.getAll();
-        ajaxJson(list, new String[]{});
+        ajaxJson(list, new String[]{"classCommittees"});
         return null;
     }
 
@@ -47,7 +47,7 @@ public class PositionAction extends BaseAction{
         int pageNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("page"));
         int pageSize = Integer.parseInt(ServletActionContext.getRequest().getParameter("rows"));
         List<Position> list = positionService.getByPage(pageNo, pageSize);
-        ajaxJson(list, new String[]{});
+        ajaxJson(list, new String[]{"classCommittees"});
         return null;
     }
 

@@ -31,6 +31,9 @@ public class Classes implements Serializable {
     @OneToMany(targetEntity = Student.class, mappedBy = "classes")
     @OrderBy("number")
     private Set<Student> students = new HashSet<Student>();
+    @OneToMany(targetEntity = ClassCommittee.class, mappedBy = "classes")
+    @OrderBy("positionNumber")
+    private Set<ClassCommittee> classCommittees = new HashSet<ClassCommittee>();
 
     public Classes(){}
 

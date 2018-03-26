@@ -39,6 +39,10 @@ public class DormitoryAction extends BaseAction {
         return "success";
     }
 
+    public String infoUI(){
+        return "success";
+    }
+
     public String getAll() throws IOException {
         List<Dormitory> list = dormitoryService.getAll();
         ajaxJson(list,new String[]{"students","dormitory"});
@@ -67,9 +71,9 @@ public class DormitoryAction extends BaseAction {
         return null;
     }
 
-    public String getStudent() throws IOException {
+    public String getStudents() throws IOException {
         String id = ServletActionContext.getRequest().getParameter("id");
-        ajaxJson(dormitoryService.getStudent(id), new String[]{"dormitory","classes"});
+        ajaxJson(dormitoryService.getStudents(id), new String[]{"dormitory","classes"});
         return null;
     }
 
@@ -119,4 +123,5 @@ public class DormitoryAction extends BaseAction {
         dormitoryService.exportFile(os);
         return null;
     }
+
 }

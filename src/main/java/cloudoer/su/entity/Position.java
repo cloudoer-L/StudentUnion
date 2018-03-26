@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 班级职务
@@ -23,6 +25,9 @@ public class Position implements Serializable {
     private String number;
     private String introduce;//职务说明
     private String state;
+
+    @OneToMany(targetEntity = ClassCommittee.class, mappedBy = "position")
+    private Set<ClassCommittee> classCommittees = new HashSet<ClassCommittee>();
 
     public Position(){}
 

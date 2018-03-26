@@ -17,6 +17,7 @@
     <a id="dormitory_index_delete" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">删除寝室</a>
     <a id="dormitory_index_import" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">批量导入</a>
     <a id="dormitory_index_export" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">批量导出</a>
+    <a id="dormitory_index_info" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">详细信息</a>
 </div>
 
 <script type="text/javascript">

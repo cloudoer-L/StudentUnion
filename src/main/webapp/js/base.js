@@ -35,6 +35,28 @@ Base.prototype.show_dialog_min = function (_divId, _url, _title, _queryParams) {
 };
 
 /**
+ * 打开一个大的模态框，主要用于详细信息的展示
+ * @param _divId
+ * @param _url
+ * @param _title
+ * @param _queryParams
+ */
+Base.prototype.show_dialog_max = function (_divId, _url, _title, _queryParams) {
+    $("<div/>").dialog({
+        id: _divId,
+        href: _url,
+        title: _title,
+        height: 600,
+        width: 1100,
+        modal: true,
+        queryParams: _queryParams,
+        onClose: function () {
+            $("#"+_divId).dialog('destroy');  //销毁dialog对象
+        }
+    });
+};
+
+/**
  * 提交treegrid 的ajax ，主要应用于treegrid 的删除
  * @param _url
  * @param _dgId

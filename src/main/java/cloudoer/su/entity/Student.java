@@ -21,6 +21,8 @@ public class Student extends Person {
     @ManyToOne(targetEntity = Dormitory.class)
     @JoinColumn(name = "dormitoryId",referencedColumnName = "id")
     private Dormitory dormitory;//所在寝室
+    @OneToMany(targetEntity = ClassCommittee.class, mappedBy = "student")
+    private Set<ClassCommittee> classCommittees = new HashSet<ClassCommittee>();
 
     public Student(){}
 
