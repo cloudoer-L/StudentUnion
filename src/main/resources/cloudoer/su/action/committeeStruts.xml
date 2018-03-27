@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <package name="committee" namespace="/committee" extends="struts-default">
+        <action name="indexUI" class="classCommitteeAction" method="indexUI">
+            <result name="success">/WEB-INF/views/basics/committee/index.jsp</result>
+        </action>
+        <action name="addUI" class="classCommitteeAction" method="addUI">
+            <result name="success">/WEB-INF/views/basics/committee/add.jsp</result>
+        </action>
+        <action name="importUI" class="classCommitteeAction" method="importUI">
+            <result name="success">/WEB-INF/views/basics/committee/import.jsp</result>
+        </action>
+
+        <action name="getAll" class="classCommitteeAction" method="getAll"></action>
+        <action name="getByPage" class="classCommitteeAction" method="getByPage"></action>
+        <action name="getById" class="classCommitteeAction" method="getById"></action>
+        <action name="getByNumber" class="classCommitteeAction" method="getByNumber"></action>
+        <action name="add" class="classCommitteeAction" method="add"></action>
+        <action name="update" class="classCommitteeAction" method="update"></action>
+        <action name="delete" class="classCommitteeAction" method="delete"></action>
+        <action name="importFile" class="classCommitteeAction" method="importFile"></action>
+        <action name="exportFile" class="classCommitteeAction" method="exportFile"></action>
+    </package>
+</struts>

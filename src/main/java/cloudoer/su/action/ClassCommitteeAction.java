@@ -1,8 +1,7 @@
 package cloudoer.su.action;
 
 import cloudoer.su.base.impl.BaseAction;
-import cloudoer.su.entity.Dormitory;
-import cloudoer.su.entity.Student;
+import cloudoer.su.entity.ClassCommittee;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -10,21 +9,20 @@ import org.springframework.stereotype.Controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 @Controller
 @Scope("prototype")
-public class DormitoryAction extends BaseAction {
-    private Dormitory dormitory;
+public class ClassCommitteeAction extends BaseAction{
+    private ClassCommittee committee;
 
-    public Dormitory getDormitory() {
-        return dormitory;
+    public ClassCommittee getCommittee() {
+        return committee;
     }
 
-    public void setDormitory(Dormitory dormitory) {
-        this.dormitory = dormitory;
+    public void setCommittee(ClassCommittee committee) {
+        this.committee = committee;
     }
 
     public String indexUI (){
@@ -39,64 +37,59 @@ public class DormitoryAction extends BaseAction {
         return "success";
     }
 
-    public String infoUI(){
-        return "success";
-    }
-
     public String getAll() throws IOException {
-        List<Dormitory> list = dormitoryService.getAll();
-        ajaxJson(list,new String[]{"students","dormitory"});
+        List<ClassCommittee> list = classCommitteeService.getAll();
+        ajaxJson(list,new String[]{"classesC","position","classCommittees"});
         return null;
     }
 
     public String getByPage() throws IOException {
         int pageNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("page"));
         int pageSize = Integer.parseInt(ServletActionContext.getRequest().getParameter("rows"));
-        List<Dormitory> list = dormitoryService.getByPage(pageNo, pageSize);
-        ajaxJson(list, new String[]{"students","dormitory"});
+        List<ClassCommittee> list = classCommitteeService.getByPage(pageNo, pageSize);
+        ajaxJson(list, new String[]{"classesC","position","classCommittees"});
         return null;
     }
 
     public String getById () throws IOException {
         String id = ServletActionContext.getRequest().getParameter("id");
-        Dormitory dormitory = dormitoryService.getById(id);
-        ajaxJson(dormitory, new String[]{"students","dormitory"});
+        ClassCommittee committee = classCommitteeService.getById(id);
+        ajaxJson(committee, new String[]{"classesC","position","classCommittees"});
         return null;
     }
 
     public String getByNumber () throws IOException {
         String number = ServletActionContext.getRequest().getParameter("number");
-        Dormitory dormitory = dormitoryService.getById(number);
-        ajaxJson(dormitory, new String[]{"students","dormitory"});
-        return null;
-    }
-
-    public String getStudents() throws IOException {
-        String id = ServletActionContext.getRequest().getParameter("id");
-        ajaxJson(dormitoryService.getStudents(id), new String[]{"dormitory","classes"});
+        ClassCommittee committee = classCommitteeService.getById(number);
+        ajaxJson(committee, new String[]{"classesC","position","classCommittees"});
         return null;
     }
 
     public String add() throws IOException {
-        dormitoryService.add(dormitory);
+        String classesNumber = ServletActionContext.getRequest().getParameter("classesNumber");
+        String studentNumber = ServletActionContext.getRequest().getParameter("studentNumber");
+        String positionNumber = ServletActionContext.getRequest().getParameter("positionNumber");
+        classCommitteeService.add(classesNumber, studentNumber, positionNumber);
         ajaxSuccess("添加成功");
         return null;
     }
 
     public String update() throws IOException {
-        String adminId = ServletActionContext.getRequest().getParameter("adminId");
-        dormitoryService.update(dormitory, adminId);
+        String classesNumber = ServletActionContext.getRequest().getParameter("classesNumber");
+        String studentNumber = ServletActionContext.getRequest().getParameter("studentNumber");
+        String positionNumber = ServletActionContext.getRequest().getParameter("positionNumber");
+        String id = ServletActionContext.getRequest().getParameter("id");
+        classCommitteeService.update(classesNumber, studentNumber, positionNumber,id);
         ajaxSuccess("修改成功");
         return null;
     }
 
     public String delete() throws IOException {
         String id = ServletActionContext.getRequest().getParameter("id");
-        dormitoryService.delete(id);
+        classCommitteeService.delete(id);
         ajaxSuccess("删除成功");
         return null;
     }
-
 
     public String importFile() throws IOException {
         Map<String, Object> map = getExcalFile();
@@ -107,7 +100,7 @@ public class DormitoryAction extends BaseAction {
             return null;
         }
         if (fileName.matches("^.+\\.(?i)((xls)|(xlsx))$")){//检查是否是Excel文件
-            String msg = dormitoryService.importFile(file);
+            String msg = classCommitteeService.importFile(file);
             ajaxSuccess(msg);
         }else {
             ajaxError("文件格式错误，请按规范提交");
@@ -119,16 +112,8 @@ public class DormitoryAction extends BaseAction {
     public String exportFile() throws Exception {
         OutputStream os = ServletActionContext.getResponse().getOutputStream();
         ServletActionContext.getResponse().setContentType("application/x-execl");
-        ServletActionContext.getResponse().setHeader("Content-Disposition", "attachment;filename=" + new String("寝室数据.xls".getBytes(), "ISO-8859-1"));
-        dormitoryService.exportFile(os);
-        return null;
-    }
-
-    public String appointAdmin() throws IOException {
-        String id = ServletActionContext.getRequest().getParameter("id");
-        String adminId = ServletActionContext.getRequest().getParameter("adminId");
-        dormitoryService.appointAdmin(id, adminId);
-        ajaxSuccess("操作成功");
+        ServletActionContext.getResponse().setHeader("Content-Disposition", "attachment;filename=" + new String("班委数据.xls".getBytes(), "ISO-8859-1"));
+        classCommitteeService.exportFile(os);
         return null;
     }
 

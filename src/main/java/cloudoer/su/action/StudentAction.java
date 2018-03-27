@@ -39,7 +39,7 @@ public class StudentAction extends BaseAction {
 
     public String getAll() throws IOException {
         List<Student> list = studentService.getAll();
-        ajaxJson(list, new String[]{"classes","students"});
+        ajaxJson(list, new String[]{"classes","dormitory","classCommittees"});
         return null;
     }
 
@@ -47,21 +47,21 @@ public class StudentAction extends BaseAction {
         int pageNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("page"));
         int pageSize = Integer.parseInt(ServletActionContext.getRequest().getParameter("rows"));
         List<Student> list = studentService.getByPage(pageNo, pageSize);
-        ajaxJson(list, new String[]{"students"});
+        ajaxJson(list, new String[]{"students","classCommittees"});
         return null;
     }
 
     public String getById () throws IOException {
         String id = ServletActionContext.getRequest().getParameter("id");
         Student student = studentService.getById(id);
-        ajaxJson(student, new String[]{"students"});
+        ajaxJson(student, new String[]{"students","classCommittees"});
         return null;
     }
 
     public String getByNumber() throws IOException {
         String number = ServletActionContext.getRequest().getParameter("number");
         Student student = studentService.getByNumber(number);
-        ajaxJson(student, new String[]{"students"});
+        ajaxJson(student, new String[]{"students","classCommittees"});
         return null;
     }
 

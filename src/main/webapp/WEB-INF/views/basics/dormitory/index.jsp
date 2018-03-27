@@ -71,6 +71,16 @@
             $('#dormitory_index_export').on('click', function () {
                 window.open(bs.base_url + 'dormitory/exportFile.action');
             });
+            $('#dormitory_index_info').on('click', function () {
+                var _row = $('#dormitory_index_dg').datagrid('getSelected');
+                if (_row != null){
+                    var _url = bs.base_url+'dormitory/infoUI.action';
+                    var _queryParams = {row:_row};
+                    bs.show_dialog_max('dormitory_info_dialog',_url,'寝室详细信息',_queryParams);
+                }else {
+                    $.messager.alert('警告','请选择一条数据');
+                }
+            });
         }
     }
 

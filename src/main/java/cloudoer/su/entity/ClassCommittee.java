@@ -25,7 +25,7 @@ public class ClassCommittee implements Serializable {
 
     @ManyToOne(targetEntity = Classes.class)
     @JoinColumn(name = "classesId", referencedColumnName = "id")
-    private Classes classes;
+    private Classes classesC;
     @ManyToOne(targetEntity = Student.class)
     @JoinColumn(name = "studentId",referencedColumnName = "id")
     private Student student;
@@ -67,12 +67,12 @@ public class ClassCommittee implements Serializable {
         this.positionNumber = positionNumber;
     }
 
-    public Classes getClasses() {
-        return classes;
+    public Classes getClassesC() {
+        return classesC;
     }
 
-    public void setClasses(Classes classes) {
-        this.classes = classes;
+    public void setClassesC(Classes classes) {
+        this.classesC = classes;
     }
 
     public Student getStudent() {

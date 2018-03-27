@@ -30,4 +30,11 @@ public interface DormitoryService extends BaseService {
     String importFile(File file) throws ServiceException;
 
     void exportFile(OutputStream os)throws Exception;
+
+    /**
+     * 设置寝室室长
+     * @param id
+     * @param adminId
+     */
+    void appointAdmin(String id, String adminId);
 }

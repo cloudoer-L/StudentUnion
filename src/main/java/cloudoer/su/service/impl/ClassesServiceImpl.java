@@ -1,7 +1,9 @@
 package cloudoer.su.service.impl;
 
 import cloudoer.su.base.impl.BaseServiceImpl;
+import cloudoer.su.entity.ClassCommittee;
 import cloudoer.su.entity.Classes;
+import cloudoer.su.entity.Student;
 import cloudoer.su.entity.Teacher;
 import cloudoer.su.exception.ServiceException;
 import cloudoer.su.service.ClassesService;
@@ -16,7 +18,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service("classesService")
 @Transactional
@@ -87,8 +91,8 @@ public class ClassesServiceImpl extends BaseServiceImpl implements ClassesServic
                     classesDao.add(c);
                     successCount++;
                     if (i+1%20==0){
-                        teacherDao.getSession().flush();
-                        teacherDao.getSession().clear();
+                        classesDao.getSession().flush();
+                        classesDao.getSession().clear();
                     }
                 }catch (ServiceException e){
                     errorCount++;
@@ -132,5 +136,25 @@ public class ClassesServiceImpl extends BaseServiceImpl implements ClassesServic
         workbook.write(os);
     }
 
+    public Set<Student> getStudents(String id){
+        Classes c = (Classes) classesDao.getById(id);
+        if (c == null){
+            throw new ServiceException("参数错误");
+        }
+        if (c.getStudents() == null){
+            return new HashSet<Student>();
+        }
+        return c.getStudents();
+    }
 
+    public Set<ClassCommittee> getClassCommittee(String id){
+        Classes c = (Classes) classesDao.getById(id);
+        if (c == null){
+            throw new ServiceException("参数错误");
+        }
+        if (c.getClassCommittees() == null){
+            return new HashSet<ClassCommittee>();
+        }
+        return c.getClassCommittees();
+    }
 }

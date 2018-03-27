@@ -24,6 +24,14 @@ public class Student extends Person {
     @OneToMany(targetEntity = ClassCommittee.class, mappedBy = "student")
     private Set<ClassCommittee> classCommittees = new HashSet<ClassCommittee>();
 
+    public Set<ClassCommittee> getClassCommittees() {
+        return classCommittees;
+    }
+
+    public void setClassCommittees(Set<ClassCommittee> classCommittees) {
+        this.classCommittees = classCommittees;
+    }
+
     public Student(){}
 
     public String getState() {

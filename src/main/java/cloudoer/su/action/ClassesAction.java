@@ -1,7 +1,9 @@
 package cloudoer.su.action;
 
 import cloudoer.su.base.impl.BaseAction;
+import cloudoer.su.entity.ClassCommittee;
 import cloudoer.su.entity.Classes;
+import cloudoer.su.entity.Student;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -15,6 +17,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Controller
 @Scope("prototype")
@@ -41,9 +44,25 @@ public class ClassesAction extends BaseAction {
         return "success";
     }
 
+    public String infoUI(){
+        return "success";
+    }
+
+    public String messageUI(){
+        return "success";
+    }
+
+    public String classes_studentsUI(){
+        return "success";
+    }
+
+    public String classes_committeeUI(){
+        return "success";
+    }
+
     public String getAll() throws IOException {
         List<Classes> list = classesService.getAll();
-        ajaxJson(list, new String[]{"classes","students"});
+        ajaxJson(list, new String[]{"classes","students","classCommittees","teacher"});
         return null;
     }
 
@@ -51,21 +70,21 @@ public class ClassesAction extends BaseAction {
         int pageNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("page"));
         int pageSize = Integer.parseInt(ServletActionContext.getRequest().getParameter("rows"));
         List<Classes> list = classesService.getByPage(pageNo, pageSize);
-        ajaxJson(list, new String[]{"classes","students"});
+        ajaxJson(list, new String[]{"classes","students","classCommittees"});
         return null;
     }
 
     public String getById () throws IOException {
         String id = ServletActionContext.getRequest().getParameter("id");
         Classes classes = classesService.getById(id);
-        ajaxJson(classes, new String[]{"classes","students"});
+        ajaxJson(classes, new String[]{"classes","students","classCommittees"});
         return null;
     }
 
     public String getByNumber() throws IOException {
         String number = ServletActionContext.getRequest().getParameter("number");
         Classes classes = classesService.getByNumber(number);
-        ajaxJson(classes, new String[]{"classes","students"});
+        ajaxJson(classes, new String[]{"classes","students","classCommittees"});
         return null;
     }
 
@@ -113,6 +132,20 @@ public class ClassesAction extends BaseAction {
         ServletActionContext.getResponse().setContentType("application/x-execl");
         ServletActionContext.getResponse().setHeader("Content-Disposition", "attachment;filename=" + new String("班级数据.xls".getBytes(), "ISO-8859-1"));
         classesService.exportFile(os);
+        return null;
+    }
+
+    public String getStudents() throws IOException {
+        String id = ServletActionContext.getRequest().getParameter("id");
+        Set<Student> set = classesService.getStudents(id);
+        ajaxJson(set, new String[]{"classes","students","classCommittees"});
+        return null;
+    }
+
+    public String getClassCommittee() throws IOException {
+        String id = ServletActionContext.getRequest().getParameter("id");
+        Set<ClassCommittee> set = classesService.getClassCommittee(id);
+        ajaxJson(set, new String[]{"classesC","classCommittees","position"});
         return null;
     }
 }

@@ -16,7 +16,7 @@
             <result name="success">/WEB-INF/views/basics/dormitory/import.jsp</result>
         </action>
         <action name="infoUI" class="dormitoryAction" method="infoUI">
-            <result name="success">/WEB-INF/views/basics/dormitory/import.jsp</result>
+            <result name="success">/WEB-INF/views/basics/dormitory/info.jsp</result>
         </action>
 
         <action name="getAll" class="dormitoryAction" method="getAll"></action>
@@ -29,5 +29,6 @@
         <action name="delete" class="dormitoryAction" method="delete"></action>
         <action name="importFile" class="dormitoryAction" method="importFile"></action>
         <action name="exportFile" class="dormitoryAction" method="exportFile"></action>
+        <action name="appointAdmin" class="dormitoryAction" method="appointAdmin"></action>
     </package>
 </struts>

@@ -15,6 +15,18 @@
         <action name="importUI" class="classesAction" method="importUI">
             <result name="success">/WEB-INF/views/basics/classes/import.jsp</result>
         </action>
+        <action name="infoUI" class="classesAction" method="infoUI">
+            <result name="success">/WEB-INF/views/basics/classes/info.jsp</result>
+        </action>
+        <action name="messageUI" class="classesAction" method="messageUI">
+            <result name="success">/WEB-INF/views/basics/classes/message.jsp</result>
+        </action>
+        <action name="classes_studentsUI" class="classesAction" method="classes_studentsUI">
+            <result name="success">/WEB-INF/views/basics/classes/classes_students.jsp</result>
+        </action>
+        <action name="classes_committeeUI" class="classesAction" method="classes_committeeUI">
+            <result name="success">/WEB-INF/views/basics/classes/classes_committee.jsp</result>
+        </action>
 
         <action name="getAll" class="classesAction" method="getAll"></action>
         <action name="getByPage" class="classesAction" method="getByPage"></action>
@@ -25,5 +37,7 @@
         <action name="delete" class="classesAction" method="delete"></action>
         <action name="importFile" class="classesAction" method="importFile"></action>
         <action name="exportFile" class="classesAction" method="exportFile"></action>
+        <action name="getStudents" class="classesAction" method="getStudents"></action>
+        <action name="getClassCommittee" class="classesAction" method="getClassCommittee"></action>
     </package>
 </struts>

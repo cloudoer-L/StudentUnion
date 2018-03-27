@@ -146,4 +146,16 @@ public class DormitoryServiceImpl extends BaseServiceImpl implements DormitorySe
         }
         workbook.write(os);
     }
+
+    public void appointAdmin(String id, String adminId){
+        Dormitory d = (Dormitory) dormitoryDao.getById(id);
+        if (d == null){
+            throw new ServiceException("设置失败，请寝室参数");
+        }
+        Student s = (Student) studentDao.getById(adminId);
+        if (s == null){
+            throw new ServiceException("设置失败，请学生参数");
+        }
+        d.setAdmin(s);
+    }
 }
