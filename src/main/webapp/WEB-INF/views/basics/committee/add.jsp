@@ -71,17 +71,33 @@
                 if (_committee_add_js._qp.row != null){
                     var _row = _committee_add_js._qp.row
                     $('#committee_add_id').val(_row.id);
-                    $("#committee_add_classes").combogrid('setValue',_row.classesNumber);
-                    $("#committee_add_student").combogrid('setValue',_row.studentNumber);
+                    $("#committee_add_classes").combogrid('setValue',_row.student.classes.number);
+                    $("#committee_add_student").combogrid('setValue',_row.student.number);
                     $("#committee_add_position").combogrid('setValue',_row.positionNumber);
                 }
             }
         },
+        btn_init:function () {
+            $('#committee_add_cancel').on('click',function () {
+                $("#committee_dialog").dialog('destroy');
+            });
+            $('#committee_add_ok').on('click',function () {
+                var _url = '';
+                if (_committee_add_js._qp.flag == 'add'){
+                    _url = bs.base_url + 'committee/add.action';
+                }else if (_committee_add_js._qp.flag == 'update'){
+                    _url = bs.base_url + 'committee/update.action';
+                }
+                bs.formSubmit_datagrid(_url,'committee_add_form','committee_dialog','committee_index_dg');
+            });
+        }
     }
 
     var committee_add_app = (function () {
         $(function () {
-
+            _committee_add_js.load_category();
+            _committee_add_js.init();
+            _committee_add_js.btn_init();
         });
     })();
 </script>

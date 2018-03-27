@@ -39,7 +39,7 @@ public class ClassCommitteeAction extends BaseAction{
 
     public String getAll() throws IOException {
         List<ClassCommittee> list = classCommitteeService.getAll();
-        ajaxJson(list,new String[]{"classesC","position","classCommittees"});
+        ajaxJson(list,new String[]{"classesC","position","classCommittees","students"});
         return null;
     }
 
@@ -47,21 +47,21 @@ public class ClassCommitteeAction extends BaseAction{
         int pageNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("page"));
         int pageSize = Integer.parseInt(ServletActionContext.getRequest().getParameter("rows"));
         List<ClassCommittee> list = classCommitteeService.getByPage(pageNo, pageSize);
-        ajaxJson(list, new String[]{"classesC","position","classCommittees"});
+        ajaxJson(list, new String[]{"classesC","position","students"});
         return null;
     }
 
     public String getById () throws IOException {
         String id = ServletActionContext.getRequest().getParameter("id");
         ClassCommittee committee = classCommitteeService.getById(id);
-        ajaxJson(committee, new String[]{"classesC","position","classCommittees"});
+        ajaxJson(committee, new String[]{"classesC","position","classCommittees","students"});
         return null;
     }
 
     public String getByNumber () throws IOException {
         String number = ServletActionContext.getRequest().getParameter("number");
         ClassCommittee committee = classCommitteeService.getById(number);
-        ajaxJson(committee, new String[]{"classesC","position","classCommittees"});
+        ajaxJson(committee, new String[]{"classesC","position","classCommittees","students"});
         return null;
     }
 
