@@ -17,6 +17,7 @@
     <a id="classes_index_delete" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">删除班级</a>
     <a id="classes_index_import" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">批量导入</a>
     <a id="classes_index_export" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">批量导出</a>
+    <a id="classes_index_info" href="javascript:;" class="easyui-linkbutton" data-options="iconCls:'icon-help',plain:true">详细信息</a>
 </div>
 
 <script type="text/javascript">
@@ -73,6 +74,16 @@
             });
             $('#classes_index_export').on('click', function () {
                 window.open(bs.base_url + 'classes/exportFile.action');
+            });
+            $('#classes_index_info').on('click', function () {
+                var _row = $('#classes_index_dg').datagrid('getSelected');
+                if (_row != null){
+                    var _url = bs.base_url+'classes/infoUI.action';
+                    var _queryParams = {row:_row};
+                    bs.show_dialog_max('classes_info_dialog',_url,_row.name+' 班级详细信息',_queryParams);
+                }else {
+                    $.messager.alert('警告','请选择一条数据');
+                }
             });
         }
     }

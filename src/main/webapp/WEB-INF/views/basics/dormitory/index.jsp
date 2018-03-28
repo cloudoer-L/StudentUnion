@@ -76,7 +76,7 @@
                 if (_row != null){
                     var _url = bs.base_url+'dormitory/infoUI.action';
                     var _queryParams = {row:_row};
-                    bs.show_dialog_max('dormitory_info_dialog',_url,'寝室详细信息',_queryParams);
+                    bs.show_dialog_max('dormitory_info_dialog',_url,_row.name+'寝室详细信息',_queryParams);
                 }else {
                     $.messager.alert('警告','请选择一条数据');
                 }
