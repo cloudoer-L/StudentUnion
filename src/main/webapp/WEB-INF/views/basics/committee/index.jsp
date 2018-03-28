@@ -64,13 +64,13 @@
         },
         btn_init : function () {
             $('#committee_index_add').on('click', function () {
-                bs.show_dialog_min('committee_dialog',bs.base_url+'committee/addUI.action','添加班级',{flag:'add'});
+                bs.show_dialog_min('committee_dialog',bs.base_url+'committee/addUI.action','添加班级',{flag:'add',dgId:'committee_index_dg'});
             });
             $('#committee_index_update').on('click', function () {
                 var _row = $('#committee_index_dg').datagrid('getSelected');
                 if (_row != null){
                     var _url = bs.base_url+'committee/addUI.action';
-                    var _queryParams = {row:_row, flag:'update'};
+                    var _queryParams = {row:_row, flag:'update',dgId:'committee_index_dg'};
                     bs.show_dialog_min('committee_dialog',_url,'修改班级信息',_queryParams);
                 }else {
                     $.messager.alert('警告','请选择一条数据');

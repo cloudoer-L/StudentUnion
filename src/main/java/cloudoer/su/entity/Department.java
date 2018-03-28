@@ -22,7 +22,7 @@ public class Department implements Serializable {
     private String id;
     private String name;
     private String number;
-    private String introduce;//职务、角色说明
+    private String introduce;//部门介绍
     private String state;
     @OneToOne(targetEntity = Member.class)
     @JoinColumn(name = "leaderId", referencedColumnName = "id", unique = true)

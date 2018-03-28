@@ -145,7 +145,7 @@ public class ClassesAction extends BaseAction {
     public String getClassCommittee() throws IOException {
         String id = ServletActionContext.getRequest().getParameter("id");
         Set<ClassCommittee> set = classesService.getClassCommittee(id);
-        ajaxJson(set, new String[]{"classesC","classCommittees","position"});
+        ajaxJson(set, new String[]{"classesC","classCommittees","position","classes"});
         return null;
     }
 }

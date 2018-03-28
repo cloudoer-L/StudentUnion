@@ -60,7 +60,7 @@
                 <tr>
                     <th>班级：</th>
                     <td>
-                        <input id="student_add_classesId" name="classesId" />
+                        <input id="student_add_classesId" name="classesId" required="required"/>
                     </td>
                 </tr>
                 <tr>
@@ -129,6 +129,10 @@
                     }
                 }
             }
+            if (_student_add_js._qp.classesId){
+                $("#student_add_classesId").combogrid('setValue',_student_add_js._qp.classesId);
+            }
+
         },
         btn_init:function () {
             $('#student_add_ok').on('click',function () {
@@ -138,7 +142,7 @@
                 }else if (_student_add_js._qp.flag == 'update'){
                     _url = bs.base_url + 'student/update.action';
                 }
-                bs.formSubmit_datagrid(_url,'student_add_form','student_dialog','student_index_dg');
+                bs.formSubmit_datagrid(_url,'student_add_form','student_dialog',_student_add_js._qp.dgId);
             });
             $('#student_add_cancel').on('click',function () {
                 $("#student_dialog").dialog('destroy');

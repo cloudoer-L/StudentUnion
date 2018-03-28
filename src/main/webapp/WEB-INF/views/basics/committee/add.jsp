@@ -76,6 +76,9 @@
                     $("#committee_add_position").combogrid('setValue',_row.positionNumber);
                 }
             }
+            if (_committee_add_js._qp.classesNumber){
+                $("#committee_add_classes").combogrid('setValue',_committee_add_js._qp.classesNumber);
+            }
         },
         btn_init:function () {
             $('#committee_add_cancel').on('click',function () {
@@ -88,7 +91,7 @@
                 }else if (_committee_add_js._qp.flag == 'update'){
                     _url = bs.base_url + 'committee/update.action';
                 }
-                bs.formSubmit_datagrid(_url,'committee_add_form','committee_dialog','committee_index_dg');
+                bs.formSubmit_datagrid(_url,'committee_add_form','committee_dialog',_committee_add_js._qp.dgId);
             });
         }
     }

@@ -51,13 +51,13 @@
         },
         btn_init : function () {
             $('#student_index_add').on('click', function () {
-                bs.show_dialog_min('student_dialog',bs.base_url+'student/addUI.action','添加学生',{flag:'add'});
+                bs.show_dialog_min('student_dialog',bs.base_url+'student/addUI.action','添加学生',{flag:'add',dgId:'student_index_dg'});
             });
             $('#student_index_update').on('click', function () {
                 var _row = $('#student_index_dg').datagrid('getSelected');
                 if (_row != null){
                     var _url = bs.base_url+'student/addUI.action';
-                    var _queryParams = {row:_row, flag:'update'};
+                    var _queryParams = {row:_row, flag:'update',dgId:'student_index_dg'};
                     bs.show_dialog_min('student_dialog',_url,'修改学生信息',_queryParams);
                 }else {
                     $.messager.alert('警告','请选择一条数据');

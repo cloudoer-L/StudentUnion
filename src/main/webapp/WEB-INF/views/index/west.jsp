@@ -6,6 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<style type="text/css">
+    .menu_bar {
+        margin: auto;
+    }
+    .menu_bar a {
+        width: 95%;
+        margin: 5px 0px 0px 0px;
+    }
+</style>
+
 <div id="west_app" class="easyui-accordion" data-options="fit:true" ></div>
 
 <script type="text/javascript">
@@ -22,11 +32,12 @@
         },
         menu_init:function (_menu) {
             for (var i = 0; i < _menu.length; i++){
-                var _button = '';
+                var _button = '<div class="menu_bar">';
                 for (var j = 0; j < _menu[i].lower.length; j++){
                     _button += '<a id="'+_menu[i].lower[j].id+'" href="javascript:;">'+_menu[i].lower[j].name+'</a><br/>';
                 }
-                $('#west_app').accordion('add',{
+                _button += '</div>';
+                    $('#west_app').accordion('add',{
                     title: _menu[i].name,
                     content: _button,
                     selected: false
