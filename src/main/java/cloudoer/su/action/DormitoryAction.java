@@ -13,6 +13,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Controller
 @Scope("prototype")
@@ -73,7 +74,8 @@ public class DormitoryAction extends BaseAction {
 
     public String getStudents() throws IOException {
         String id = ServletActionContext.getRequest().getParameter("id");
-        ajaxJson(dormitoryService.getStudents(id), new String[]{"dormitory","classes"});
+        Set<Student> set = dormitoryService.getStudents(id);
+        ajaxJson(set, new String[]{"dormitory","students","teacher","classCommittees"});
         return null;
     }
 

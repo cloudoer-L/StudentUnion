@@ -88,7 +88,7 @@
                     $('#dormitory_add_id').val(_row.id);
                     $('#dormitory_add_name').textbox('setValue',_row.name);
                     $('#dormitory_add_number').textbox('setValue',_row.number);
-                    $('#teacher_add_state').textbox('setValue',_row.state);
+                    $('#dormitory_add_state').textbox('setValue',_row.state);
                     $('#dormitory_add_buildingName').textbox('setValue',_row.buildingName);
                     $('#dormitory_add_buildingNumber').textbox('setValue',_row.buildingNumber);
                     $('#dormitory_add_capacity').textbox('setValue',_row.capacity);

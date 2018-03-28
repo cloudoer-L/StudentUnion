@@ -47,7 +47,7 @@ public class ClassCommitteeAction extends BaseAction{
         int pageNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("page"));
         int pageSize = Integer.parseInt(ServletActionContext.getRequest().getParameter("rows"));
         List<ClassCommittee> list = classCommitteeService.getByPage(pageNo, pageSize);
-        ajaxJson(list, new String[]{"classesC","position","students"});
+        ajaxJson(list, new String[]{"classesC","position","students","dormitory","teacher"});
         return null;
     }
 

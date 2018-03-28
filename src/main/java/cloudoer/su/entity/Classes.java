@@ -29,7 +29,7 @@ public class Classes implements Serializable {
     @JoinColumn(name = "teacherId", referencedColumnName = "id", nullable = true)
     private Teacher teacher;//班主任
     @OneToMany(targetEntity = Student.class, mappedBy = "classes")
-    @OrderBy("number")
+    @OrderBy("classes")
     private Set<Student> students = new HashSet<Student>();
     @OneToMany(targetEntity = ClassCommittee.class, mappedBy = "classesC")
     @OrderBy("positionNumber")

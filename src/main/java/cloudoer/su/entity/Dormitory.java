@@ -32,7 +32,7 @@ public class Dormitory implements Serializable {
     @JoinColumn(name = "adminId", referencedColumnName = "id", unique = true)
     private Student admin;//室长
     @OneToMany(targetEntity = Student.class, mappedBy = "dormitory")
-    @OrderBy("number")
+    @OrderBy("classes")
     private Set<Student> students = new HashSet<Student>();
 
     public Dormitory(){}
