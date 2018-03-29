@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 用户
@@ -22,9 +24,13 @@ public class User implements Serializable {
     private String userName;
     private String password;
     private String state;
-    @OneToOne(targetEntity = Member.class)
-    @JoinColumn(name = "memberId", referencedColumnName = "id", unique = true)
-    private Member member;//所关联的部门成员
+    @OneToOne(targetEntity = Person.class)
+    @JoinColumn(name = "personId", referencedColumnName = "id", unique = true)
+    private Person person;//所关联的部门成员
+    @ManyToMany(targetEntity = Role.class)
+    @JoinTable(name = "su_user_role", joinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"),
+                    inverseJoinColumns = @JoinColumn(name = "roleId", referencedColumnName = "id"))
+    private Set<Role> roles = new HashSet<Role>();
 
     public User(){}
 
@@ -60,12 +66,20 @@ public class User implements Serializable {
         this.state = state;
     }
 
-    public Member getMember() {
-        return member;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setMember(Member member) {
-        this.member = member;
+    public void setPerson(Person person) {
+        this.person = person;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     @Override
@@ -75,7 +89,6 @@ public class User implements Serializable {
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", state='" + state + '\'' +
-                ", member=" + member +
                 '}';
     }
 

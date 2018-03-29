@@ -4,6 +4,8 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * 部门职务，角色
@@ -23,6 +25,15 @@ public class Role implements Serializable {
     private String number;
     private String introduce;//职务、角色说明
     private String state;
+
+    @ManyToMany(targetEntity = Menu.class)
+    @JoinTable(name = "su_role_menu", joinColumns = @JoinColumn(name = "roleId", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "menuId", referencedColumnName = "id"))
+    private Set<Menu> menus = new HashSet<Menu>();
+    @ManyToMany(targetEntity = User.class)
+    @JoinTable(name = "su_user_role", joinColumns = @JoinColumn(name = "roleId", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"))
+    private Set<User> users = new HashSet<User>();
 
     public Role(){}
 
@@ -64,6 +75,22 @@ public class Role implements Serializable {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public Set<Menu> getMenus() {
+        return menus;
+    }
+
+    public void setMenus(Set<Menu> menus) {
+        this.menus = menus;
+    }
+
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     @Override

@@ -21,6 +21,7 @@ public class Member implements Serializable {
     private String id;
     private String name;
     private String number;
+    private String place;
     private String state;
     @OneToOne(targetEntity = Person.class)
     @JoinColumn(name = "personId", referencedColumnName = "id", unique = true)
@@ -28,9 +29,6 @@ public class Member implements Serializable {
     @ManyToOne(targetEntity = Department.class)
     @JoinColumn(name = "departmentId", referencedColumnName = "id")
     private Department department;//所属部门
-    @OneToOne(targetEntity = Role.class)
-    @JoinColumn(name = "roleId", referencedColumnName = "id", unique = true)
-    private Role role;//在部门中担任的职务
 
     public Member(){}
 
@@ -82,12 +80,12 @@ public class Member implements Serializable {
         this.department = department;
     }
 
-    public Role getRole() {
-        return role;
+    public String getPlace() {
+        return place;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
+    public void setPlace(String place) {
+        this.place = place;
     }
 
     @Override
@@ -99,7 +97,6 @@ public class Member implements Serializable {
                 ", state='" + state + '\'' +
                 ", person=" + person +
                 ", department=" + department +
-                ", role=" + role +
                 '}';
     }
 
