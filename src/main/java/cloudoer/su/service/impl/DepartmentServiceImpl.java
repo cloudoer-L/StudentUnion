@@ -9,6 +9,8 @@ import cloudoer.su.utils.ExcelUtil;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,6 +20,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+@Service("departmentService")
+@Transactional
 public class DepartmentServiceImpl extends BaseServiceImpl implements DepartmentService {
     public List<Department> getAll() {
         return departmentDao.getAll();

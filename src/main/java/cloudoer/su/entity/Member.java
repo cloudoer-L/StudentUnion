@@ -21,7 +21,7 @@ public class Member implements Serializable {
     private String id;
     private String name;
     private String number;
-    private String place;
+    private String place;//职务
     private String state;
     @OneToOne(targetEntity = Person.class)
     @JoinColumn(name = "personId", referencedColumnName = "id", unique = true)
