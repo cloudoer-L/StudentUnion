@@ -46,6 +46,9 @@ public class BaseAction extends ActionSupport {
     @Resource(name = "departmentService")
     protected DepartmentService departmentService;
 
+    @Resource(name = "memberService")
+    protected MemberService memberService;
+
     /**
      * ajax向前端传送json数据
      * @param object 需要传送的对象
